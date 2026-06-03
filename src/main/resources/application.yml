@@ -77,7 +77,7 @@ sales-agent:
 
 logging:
   level:
-    com.jichi.salesAgent: DEBUG
+    com.hostarain.salesAgent: DEBUG
     dev.langchain4j: INFO
 
 app:
