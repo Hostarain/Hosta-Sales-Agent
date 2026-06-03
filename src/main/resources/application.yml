@@ -3,14 +3,13 @@ server:
 
 spring:
   application:
-    name: jc-sales-agent
+    name: hosta-sales-agent
   main:
     web-application-type: servlet
   data:
     redis:
-      host: 117.72.56.40
+      host: localhost
       port: 6379
-      password: jichi1234
       database: 0
 
   # 数据源
