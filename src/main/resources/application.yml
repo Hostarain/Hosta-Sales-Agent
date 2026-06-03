@@ -1,23 +1,23 @@
 server:
-  port: ${SERVER_PORT:8087}
+  port: 8087
 
 spring:
   application:
-    name: ${APP_NAME:jc-sales-agent}
+    name: jc-sales-agent
   main:
     web-application-type: servlet
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
-      password: ${REDIS_PASSWORD:}
-      database: ${REDIS_DATABASE:0}
+      host: 117.72.56.40
+      port: 6379
+      password: jichi1234
+      database: 0
 
   # 数据源
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/SalesAgent}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:}
+    url: jdbc:mysql://localhost:3306/SalesAgent
+    username: root
+    password: 121314
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10
@@ -28,26 +28,26 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: ${JPA_SHOW_SQL:false}
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
     defer-datasource-initialization: true
 
-# LangChain4j OpenAI 兼容接口
+# LangChain4j OpenAI 兼容接口（仅 API Key 走环境变量）
 langchain4j:
   open-ai:
     chat-model:
-      base-url: ${LLM_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1}
-      api-key: ${LLM_API_KEY:}
-      model-name: ${LLM_MODEL:qwen-max}
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: ${LLM_API_KEY}
+      model-name: qwen-max
       temperature: 0.1
       max-tokens: 2048
     streaming-chat-model:
-      base-url: ${LLM_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1}
-      api-key: ${LLM_API_KEY:}
-      model-name: ${LLM_MODEL:qwen-max}
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: ${LLM_API_KEY}
+      model-name: qwen-max
       temperature: 0.1
       max-tokens: 2048
 
@@ -73,14 +73,14 @@ management:
 # 业务参数
 sales-agent:
   tool:
-    anomaly-threshold-days: ${ANOMALY_THRESHOLD_DAYS:5}
-    trend-drop-threshold: ${TREND_DROP_THRESHOLD:0.3}
+    anomaly-threshold-days: 5
+    trend-drop-threshold: 0.3
 
 logging:
   level:
-    com.jichi.salesAgent: ${LOG_LEVEL:DEBUG}
+    com.jichi.salesAgent: DEBUG
     dev.langchain4j: INFO
 
 app:
   auth:
-    enabled: ${AUTH_ENABLED:false}
+    enabled: false
